@@ -32,12 +32,15 @@ public class App {
         ConnectionManager connectionManager = new ConnectionManager();
         UserService userService = new JDBCUserService(connectionManager);
         //UserService userService = new MockUserService();
-        userService.add(new User("rui", "ferrao@academiadecodigo.org", Security.getHash("academiadecodigo"),
+        /*userService.add(new User("rui", "ferrao@academiadecodigo.org", Security.getHash("academiadecodigo"),
                 "Rui", "Ferrão", "912345678"));
         userService.add(new User("faustino", "faustino@academiadecodigo.org", Security.getHash("academiadecodigo"),
                 "João", "Faustino", "966666666"));
         userService.add(new User("audrey", "audrey@academiadecodigo.org", Security.getHash("academiadecodigo"),
-                "Audrey", "Lopes", "934567890"));
+                "Audrey", "Lopes", "934567890"));*/
+
+        /*userService.add(new User("vero", "vero@academiadecodigo.org", Security.getHash("academiadecodigo"),
+                        "Vero", "Santos", "999999999"));*/
 
         // Wire login controller and view
         loginView.setPrompt(prompt);
@@ -68,6 +71,8 @@ public class App {
 
         // Start APP
         loginController.init();
+        System.out.println(userService.count());
+        connectionManager.close();
 
     }
 }
